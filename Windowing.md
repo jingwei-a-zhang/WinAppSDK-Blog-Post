@@ -172,7 +172,7 @@ private void SwitchPresenter(object sender, RoutedEventArgs e)
 ![](Media1%20(1).gif)
 
 </p>
-Just like that, you can see how we can leverage the amazing Windowing features to customize windowing options for your app. Repeat the same step 5 and 6 to implement the Fullscreen and Overlapped (the default) presenters. To learn more about Windowing, see Manage app windows for additional information on what you can do with this feature. 
+Just like that, you can see how we can leverage the amazing Windowing features to customize windowing options for your app. Repeat the same step 5 and 6 to implement the Fullscreen and Overlapped (the default) presenters. The only change needed is to modify step 5 to use AppWindowPresenterKind.Overlapped or AppWindowPresenterKind.Fullscreen. To learn more about Windowing, see Manage app windows for additional information on what you can do with this feature. 
 
 ## Wrapping up
-Next, we will keep evolving the app with [app single-instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/single-instancing.md). This branch covers all the code introduced in this blog.
+Next, we will keep evolving the app with [app single-instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md). This branch covers all the code introduced in this blog.
