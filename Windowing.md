@@ -2,7 +2,7 @@
 Note that the code from the previous blog implements the visual layer of the DrumPad using WinUI 3 controls. However, if you click on any buttons, nothing happens, because we have not defined any actions, which we will do in this blog. In this blog, you will be guided to accomplish the following: 
 * Play a sound when a drum pad button is clicked
 * Switch into dark mode when the toggle switch is turned on
-* Go into a specific windowing mode when something from the drop-down box is selected
+* Go into a specific windowing mode when a presenter mode is selected
 
 
 
@@ -112,7 +112,7 @@ private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
 <ToggleSwitch … … Toggled="ToggleSwitch_Toggled" />
 ```
 
-
+> **NOTE**: You can save the state of the theme resource and persist the option the user chose at the next time of app startup with three easy steps. Follow [this blog post](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/DarkMode.md) to implement this functionality. 
 
 ## Managing window display
 Using the Windowing features in WinAppSDK provides a lot of flexibility and customization to your app experience. One of these customization features is the ability to change the Presenter mode of your window. There are 3 presenters you can use: Compact  Overlay, Fullscreen, and Overlapped mode, with overlapped being the default presenter.   
@@ -165,8 +165,6 @@ private void SwitchPresenter(object sender, RoutedEventArgs e)
 ```xml
 <MenuFlyoutItem Text="Compact Overlay" Click="SwitchPresenter"/>
 ```
-
-> **NOTE**: You can save the state of the theme resource and persist the option the user chose at the next time of app startup with three easy steps. Follow [this blog post](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/DarkMode.md) to implement this functionality. 
 
 ## Results
 <p align="center">
