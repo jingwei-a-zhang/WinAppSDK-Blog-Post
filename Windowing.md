@@ -10,13 +10,13 @@ Note that the code from the previous blog implements the visual layer of the Dru
 
 1. Download sound clips to your project's Assets folder
 
-> **NOTE**: You may download any .wav sound clips for this part. Optionally, you could use my sound clips here as well. Store the sound clips under your project's Assets folder because that is the folder path we will provide to specify which sound to play. 
+> **NOTE**: You may download any .wav sound clips for this part. Optionally, you could use my sound clips [here](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/5c6e560edf74ceb0a40183e20b66741175a046d7/DrumPad/DrumPad/Assets) as well. Store the sound clips under your project's Assets folder because that is the folder path we will provide to specify which sound to play. 
 
 2. Install a NuGet Package in Visual Studio
 
 > **NOTE**: Playing a sound in WinUI apps requires using a library called *System.Media*, accessible through a NuGet Package. Following these two steps to install the NuGet Package in Visual Studio:
 
-* Navigate to Solution Explorer, under Dependencies, right-click Packages, select Manage NuGet Packages
+* Navigate to Solution Explorer, under Dependencies, right-click on Packages, select Manage NuGet Packages
 * Select the **Browse** tab, search **System.Windows.Extensions** and **install** it
 
 
@@ -25,7 +25,7 @@ Note that the code from the previous blog implements the visual layer of the Dru
 using System.Media;
 ```
 
-4.	Create a call-back function that plays a sound inside class MainWindow : Window
+4.	Create a call-back function that plays a sound in *class MainWindow : Window*:
 
 ##### MainAppWindow.xaml.cs:
 ```csharp
@@ -56,7 +56,7 @@ Repeat step 4 and 5 to attach another sound clip to a different button until all
 ## Implement dark mode
 The dark mode is an app appearance where the content is laid out on a dark background. It gives the app a different aesthetic look and can improve readability, especially in a low-light environment.
 
-1.	Define SolidColorBrush under the light and dark themes, respectively: 
+1.	Define SolidColorBrush under the light and dark themes below the comment \<!-- Other app resources here -->: 
 
 ##### App.xaml:
 ```xml
@@ -78,7 +78,7 @@ The dark mode is an app appearance where the content is laid out on a dark backg
 <Grid Background="{ThemeResource HomePageBackgroundBrush}">
 ```
 
-3.	Define the action for ToggleSwitch:
+3.	Define the action for ToggleSwitch in *class MainWindow : Window*:
 
 ##### MainWinow.xaml.cs:
 ```csharp
@@ -119,7 +119,9 @@ Using the Windowing features in WinAppSDK provides a lot of flexibility and cust
 
 > **NOTE**: It’s worth mentioning that when we build and run the project solution, there will already be some functionalities like minimizing, maximizing, and closing the app window in the title bar.
 
-1.	Add the following namespaces in MainWindow.xaml.cs file:
+1.	Add the following namespaces:
+
+##### MainWindow.xaml.cs:
 ```csharp
 using WinRT;
 // Needed for WindowId
@@ -130,12 +132,16 @@ using Microsoft.UI.Windowing;
 using WinRT.Interop;
 ```
 
-2.	Declare the following variables inside the class of class MainWindow : Window:
+2.	Declare the following variable in *class MainWindow : Window*:
+
+##### MainWindow.xaml.cs:
 ```csharp
 AppWindow m_appWindow;
 ```
 
 3.	Define a helper function GetAppWindowForCurrentWindow:
+
+##### MainWindow.xaml.cs:
 ```csharp
 private AppWindow GetAppWindowForCurrentWindow()
 {
@@ -147,23 +153,28 @@ private AppWindow GetAppWindowForCurrentWindow()
 
 > **NOTE**: The preceding code gets the window Id for the hwnd and then uses that window Id to get the current AppWindow. This will create the WinAppSDK window layer that gives you access to all the window customization features of the app window. If you run your app again and click the drop-down button and choose Compact Overlay, the app window will not allow other app windows to overlap on top of it.
 
-4.	Call GetAppWindowForCurrentWindow in public MainWindow():
+4.	Call GetAppWindowForCurrentWindow in the **MainWindow() method**:
+
+##### MainWindow.xaml.cs:
 ```csharp
 m_appWindow = GetAppWindowForCurrentWindow();
 ```
 
-5.	Set the current app window to the Compact Overlay presenter via the SetPresenter method: 
+5.	Set the current app window to the Compact Overlay presenter via the SetPresenter method in *class MainWindow : Window*: 
+
+##### MainWindow.xaml.cs:
 ```csharp
-private void SwitchPresenter(object sender, RoutedEventArgs e)
+private void SwtichPresenter_CompOverlay(object sender, RoutedEventArgs e)
 {
     m_appWindow.SetPresenter(AppWindowPresenterKind.CompactOverlay);
 }
 ```
 
-6.	Link the MenuFlyouItem to trigger the SwitchPresenter function via **Click**:
+6.	Modify the MenuFlyouItem control to add the SwtichPresenter_CompOverlay function using the **Click** parameter:
+
 ##### MainWindow.xaml:
 ```xml
-<MenuFlyoutItem Text="Compact Overlay" Click="SwitchPresenter"/>
+<MenuFlyoutItem Text="Compact Overlay" Click="SwtichPresenter_CompOverlay"/>
 ```
 
 ## Results
@@ -172,7 +183,8 @@ private void SwitchPresenter(object sender, RoutedEventArgs e)
 ![](Media1%20(1).gif)
 
 </p>
-Just like that, you can see how we can leverage the amazing Windowing features to customize windowing options for your app. Repeat the same step 5 and 6 to implement the Fullscreen and Overlapped (the default) presenters. The only change needed is to modify step 5 to use AppWindowPresenterKind.Overlapped or AppWindowPresenterKind.Fullscreen. To learn more about Windowing, see Manage app windows for additional information on what you can do with this feature. 
+
+Just like that, you can see how we can leverage the amazing Windowing features to customize windowing options for your app. Repeat the steps 5 and 6 to implement the Fullscreen and Overlapped (the default) presenters. The only change needed is to modify step 5 to use AppWindowPresenterKind.Overlapped or AppWindowPresenterKind.FullScreen. To learn more about Windowing, see [Manage app windows](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/windowing/windowing-overview) for additional information on what you can do with this feature. 
 
 ## Wrapping up
-Next, we will keep evolving the app with [app single-instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md). This branch covers all the code introduced in this blog.
+Next, we will keep evolving the app with [app single-instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md). This [branch](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/App_Logic) on GitHub covers all the code introduced in this blog.

@@ -148,9 +148,9 @@ Up until now, we have been testing our app by running the solution debugger. We 
 
 1.	Navigate to Solution Explorer -> **Right-click** on the project name -> **Deploy**
 2.	Open the start menu and click on the search field
-3.	Type DrumPad (or your app’s name) in the search field 
-4.	Click to launch DrumPad (or your app)
-5.	Search and launch the app again to see if another instance pop up
+3.	Type "DrumPad" (or your app’s name) in the search field 
+4.	Click on the app icon from the search result to launch the app
+5.	Repeat steps 2 to 4 to launch the same app again and see if another instance pops up
 
 ## Next Steps
 
