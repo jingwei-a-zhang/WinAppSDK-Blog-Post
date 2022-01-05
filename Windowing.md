@@ -25,7 +25,7 @@ Note that the code from the previous blog implements the visual layer of the Dru
 using System.Media;
 ```
 
-4.	Create a call-back function that plays a sound in *class MainWindow : Window*:
+4.	Create a call-back function that plays a sound in *class MainWindow : Window* :
 
 ##### MainAppWindow.xaml.cs:
 ```csharp
@@ -78,7 +78,7 @@ The dark mode is an app appearance where the content is laid out on a dark backg
 <Grid Background="{ThemeResource HomePageBackgroundBrush}">
 ```
 
-3.	Define the action for ToggleSwitch in *class MainWindow : Window*:
+3.	Define the action for ToggleSwitch in *class MainWindow : Window* :
 
 ##### MainWinow.xaml.cs:
 ```csharp
@@ -132,14 +132,14 @@ using Microsoft.UI.Windowing;
 using WinRT.Interop;
 ```
 
-2.	Declare the following variable in *class MainWindow : Window*:
+2.	Declare the following variable in *class MainWindow : Window* :
 
 ##### MainWindow.xaml.cs:
 ```csharp
 AppWindow m_appWindow;
 ```
 
-3.	Define a helper function GetAppWindowForCurrentWindow:
+3.	Define a helper method *GetAppWindowForCurrentWindow()* :
 
 ##### MainWindow.xaml.cs:
 ```csharp
@@ -160,7 +160,7 @@ private AppWindow GetAppWindowForCurrentWindow()
 m_appWindow = GetAppWindowForCurrentWindow();
 ```
 
-5.	Set the current app window to the Compact Overlay presenter via the SetPresenter method in *class MainWindow : Window*: 
+5.	Set the current app window to the Compact Overlay presenter via the SetPresenter method in *class MainWindow : Window* : 
 
 ##### MainWindow.xaml.cs:
 ```csharp

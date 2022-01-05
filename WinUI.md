@@ -162,6 +162,6 @@ As simple as that, we should have a working visual layer built out using WinUI 3
 ![](image%204%20(1).png)
 
 ## Wrapping up
-Next, we will dive into [implementing the business logic](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/Windowing.md). Check out [this branch](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/b748f19d15fd7b3df10e24ebf5bb6a03bec6ada7) for the code used in this blog.
+Next, we will dive into [implementing the business logic](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/Windowing.md). Check out [this branch](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/UI_Layout) for the code used in this blog.
 
   [1]: image%203%20(2).png
