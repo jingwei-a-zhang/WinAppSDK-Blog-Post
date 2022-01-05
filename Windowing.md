@@ -112,7 +112,7 @@ private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
 <ToggleSwitch … … Toggled="ToggleSwitch_Toggled" />
 ```
 
-> **NOTE**: You can save the state of the theme resource and persist the option the user chose at the next time of app startup with three easy steps. Follow [this blog post](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/DarkMode.md) to implement this functionality. 
+> **NOTE**: You can save the state of the theme resource and persist the option the user chose at the next time of app startup with four easy steps. Follow [this blog post](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/DarkModeExtra.md) to implement this functionality. 
 
 ## Managing window display
 Using the Windowing features in WinAppSDK provides a lot of flexibility and customization to your app experience. One of these customization features is the ability to change the Presenter mode of your window. There are 3 presenters you can use: Compact  Overlay, Fullscreen, and Overlapped mode, with overlapped being the default presenter.   
