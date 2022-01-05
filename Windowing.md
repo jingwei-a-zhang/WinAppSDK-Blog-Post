@@ -184,7 +184,7 @@ private void SwtichPresenter_CompOverlay(object sender, RoutedEventArgs e)
 
 </p>
 
-Just like that, you can see how we can leverage the amazing Windowing features to customize windowing options for your app. Repeat the steps 5 and 6 to implement the Fullscreen and Overlapped (the default) presenters. The only change needed is to modify step 5 to use AppWindowPresenterKind.Overlapped or AppWindowPresenterKind.FullScreen. To learn more about Windowing, see [Manage app windows](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/windowing/windowing-overview) for additional information on what you can do with this feature. 
+Just like that, you can see how we can leverage the amazing Windowing features to customize windowing options for your app. Repeat the steps 5 and 6 to implement the FullScreen and Overlapped (the default) presenters. The only change needed is to modify step 5 to use AppWindowPresenterKind.Overlapped or AppWindowPresenterKind.FullScreen. To learn more about Windowing, see [Manage app windows](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/windowing/windowing-overview) for additional information on what you can do with this feature. 
 
 ## Wrapping up
-Next, we will keep evolving the app with [app single-instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md). This [branch](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/App_Logic) on GitHub covers all the code introduced in this blog.
+Next, we will keep evolving the app with [single-instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md). This [branch](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/App_Logic) on GitHub covers all the code introduced in this blog.

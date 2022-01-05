@@ -2,7 +2,7 @@
 
 Single-instanced apps only allow one instance of the app running at a time. WinUI apps are multi-instanced by default. They allow you to launch multiple instances of the same app at one time, which we call multiple instances. However, you may implement single-instancing based on the use case of your app. Attempting to launch a second instance of a single-instanced app will only result in the first instance’s main window being activated instead. This tutorial demonstrates how to implement single-instancing.
 
-In this blog
+In this blog, you will learn to: 
 1.	Disable app build
 2.	Define customized MAIN method for redirection
 3.	Test single-instancing via app deployment
@@ -10,10 +10,12 @@ In this blog
 ## Disable app build
 We need to check for redirection as early as possible, and before creating any windows. To do this, we must define the symbol "DISABLE_XAML_GENERATED_MAIN" in the project build properties.
 
-1.	Double-click on the project name in Solution Explorer: 
+1.	**Double-click** on the project name in Solution Explorer: 
  
 
 2.	Define the **DISABLE_XAML_GENERATED_MAIN** symbol below \</PropertyGroup>
+
+##### DrumPad:
 ```xml
 <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
   <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
@@ -130,7 +132,7 @@ private static async Task<bool> DecideRedirection()
 
 > **NOTE**: DecideRedirection determines if the app has been registered via a registry key. Based on the success of registering the app again with the same registry key, it infers if there is a current app instancing running; therefore, whether or not to redirect or allow the app to launch for the first time
 
-6.	Define the helper function OnActivated
+6.	Define the helper method OnActivated(), below the DecideRedirection method:
 
 ##### Program.cs:
 
@@ -138,7 +140,6 @@ private static async Task<bool> DecideRedirection()
 private static void OnActivated(object sender, AppActivationArguments args)
 {
     ExtendedActivationKind kind = args.Kind;
-
 }
 ```
 
@@ -161,4 +162,4 @@ Here are some links to check out with resources on building for WinUI 3 apps wit
 * [WinAppSDK Samples](https://github.com/microsoft/WindowsAppSDK-Samples)
 * [WinUI 3 Samples](https://github.com/microsoft/WinUI-3-Demos)
 
-All the code we have covered from this blog post series is on my repository on [GitHub](https://github.com/jingwei-a-zhang/DrumPad), with branches for the different steps. The main branch is the most comprehensive. Those branches will allow you to see how the app architecture evolved.
+All the code we have covered from this blog post series is on my repository on [GitHub](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad), with branches for the different steps. The main branch is the most comprehensive. Those branches will allow you to see how the app architecture evolved.
