@@ -1,5 +1,5 @@
-# Adding event handlers: Sounds, Dark Mode & Windowing
-Note that the code from the previous blog implements the visual layer of the DrumPad using WinUI 3 controls. However, if you click on any buttons, nothing happens, because we have not defined any actions, which we will do in this blog. In this blog, you will be guided to accomplish the following: 
+# Adding event handlers: Sounds, Dark Mode & Windowing (Part 2)
+Note that in part 1 of the WinAppSDK Blog Series you implemented the visual layer of the DrumPad using WinUI 3 controls. However, if you click on any buttons, nothing happens, because we have not defined any actions, which we will do now. You will be guided to accomplish the following in this post: 
 * Play a sound when a drum pad button is clicked
 * Switch into dark mode when the toggle switch is turned on
 * Go into a specific windowing mode when a presenter mode is selected
@@ -12,7 +12,7 @@ Note that the code from the previous blog implements the visual layer of the Dru
 
 > **NOTE**: You may download any .wav sound clips for this part. Optionally, you could use my sound clips [here](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/5c6e560edf74ceb0a40183e20b66741175a046d7/DrumPad/DrumPad/Assets) as well. Store the sound clips under your project's Assets folder because that is the folder path we will provide to specify which sound to play. 
 
-2. Install a NuGet Package in Visual Studio
+2. Install the System.Windows.Extensions NuGet Package
 
 > **NOTE**: Playing a sound in WinUI apps requires using a library called *System.Media*, accessible through a NuGet Package. Following these two steps to install the NuGet Package in Visual Studio:
 
@@ -186,5 +186,5 @@ private void SwtichPresenter_CompOverlay(object sender, RoutedEventArgs e)
 
 Just like that, you can see how we can leverage the amazing Windowing features to customize windowing options for your app. Repeat the steps 5 and 6 to implement the FullScreen and Overlapped (the default) presenters. The only change needed is to modify step 5 to use AppWindowPresenterKind.Overlapped or AppWindowPresenterKind.FullScreen. To learn more about Windowing, see [Manage app windows](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/windowing/windowing-overview) for additional information on what you can do with this feature. 
 
-## Wrapping up
+## Moving forward
 Next, we will keep evolving the app with [single-instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md). This [branch](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/App_Logic) on GitHub covers all the code introduced in this blog.
