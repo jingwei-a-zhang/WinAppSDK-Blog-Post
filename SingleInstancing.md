@@ -42,8 +42,8 @@ We need to check for redirection as early as possible, and before creating any w
 
 A customized Program.cs file is created instead of running the default Main method because it enables the app to check for redirection, which is not what WinUI apps default to doing.
  
-1.	Navigate to Solution Explorer -> **Right-click** on the project name -> **Add** -> **New Item** 
-2.	Under **Visual C# Items** -> **Code** -> **Class** -> Name it **Program.cs** -> **Add**
+1.	Navigate to Solution Explorer -> **Right-click** on the project name -> Add -> New Item 
+2.	Under **Visual C# Items** -> Code -> Class -> Name it **Program.cs** -> Add
 
 > **NOTE**: Your project should look like this:
 <p align="center">
@@ -102,25 +102,21 @@ class Program
 private static async Task<bool> DecideRedirection()
 {
     bool isRedirect = false;
-
     AppActivationArguments args = AppInstance.GetCurrent().GetActivatedEventArgs();
     ExtendedActivationKind kind = args.Kind;
-
     AppInstance keyInstance = AppInstance.FindOrRegisterForKey("randomKey");
-
-    if (keyInstance.IsCurrent)
-    {
+    
+    if (keyInstance.IsCurrent) {
         keyInstance.Activated += OnActivated;
     }
-    else
-    {
+    else {
         isRedirect = true;
         await keyInstance.RedirectActivationToAsync(args);
     }
-
     return isRedirect;
 }
 ```
+
 
 > **NOTE**: DecideRedirection determines if the app has been registered by registering a key that represents your app instance. Based on the result  of key registration, it infers if there is a current app instancing running; therefore, whether or not to redirect or allow the app to launch for the first time
 
@@ -147,15 +143,19 @@ Up until now, we have been testing our app by running the solution debugger. We 
 
 ## Result
 
+<p align="center">
+
+![](Media2.gif)
+
+</p>
+
 ## Wrapping up
 
-Now that you have the basic app built, you can easily add other controls from the WinUI 3 Controls Gallery and experiment other cool WinAppSDK features to enhance your Windows apps!
+* **In part 1**, we learned how to use WinUI 3 controls to create the app's visual layer. 
+* **In part 2**, we introduced the concepts of dark mode and windowing. 
+* **In part 3**, we enforced single-instancing for our app. 
 
-In part 1 we learned how to do ...
-
-Then In part 2 we introduced the concepts of ...
-
-And finally in part 3 we tackled ...
+All the code we have covered from the blog series is on [GitHub](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad), with branches for the different steps. The main branch is the most comprehensive. The other branches are intended to show you how the app architecture evolved. 
 
 ## Further learning
 
@@ -171,5 +171,4 @@ Official documentations:
 * [Official WinAppSDK GitHub Repo](https://github.com/microsoft/WindowsAppSDK)
 * [Windows UI Library 3](https://docs.microsoft.com/en-us/windows/apps/winui/winui3/)
 
-
-All the code we have covered from the blog series is on [GitHub](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad), with branches for the different steps. The main branch is the most comprehensive. The branches there will allow you to see how the app architecture evolved. 
+Now that you have the basic app built, you can easily add other controls from the WinUI 3 Controls Gallery and experiment other cool WinAppSDK features to enhance your Windows apps!

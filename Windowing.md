@@ -85,22 +85,11 @@ The dark mode is an app appearance where the content is laid out on a dark backg
 private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
 {
     ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-    if (toggleSwitch != null)
-    {
-        if (toggleSwitch.IsOn == true)
-        {
-            if (this.Content is FrameworkElement frameworkElement)
-            {
-                frameworkElement.RequestedTheme = ElementTheme.Dark;
-            }
-        }
-        else
-        {
-            if (this.Content is FrameworkElement frameworkElement)
-            {
-                frameworkElement.RequestedTheme = ElementTheme.Light;
-            }
-        }
+    if (toggleSwitch.IsOn) {
+        ((FrameworkElement)this.Content).RequestedTheme = ElementTheme.Dark;
+    }
+    else {
+        ((FrameworkElement)this.Content).RequestedTheme = ElementTheme.Light;
     }
 }
 ```
@@ -117,7 +106,6 @@ private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
 ## Managing window display
 Using the Windowing features in WinAppSDK provides a lot of flexibility and customization to your app experience. One of these customization features is the ability to change the Presenter mode of your window. There are 3 presenters you can use: Compact  Overlay, Fullscreen, and Overlapped mode, with overlapped being the default presenter.   
 
-> **NOTE**: It’s worth mentioning that when we build and run the project solution, there will already be some functionalities like minimizing, maximizing, and closing the app window in the title bar.
 
 1.	Add the following namespaces:
 
@@ -151,7 +139,7 @@ private AppWindow GetAppWindowForCurrentWindow()
 }
 ```
 
-> **NOTE**: The preceding code gets the window Id for the hwnd and then uses that window Id to get the current AppWindow. This will create the WinAppSDK window layer that gives you access to all the window customization features of the app window. If you run your app again and click the drop-down button and choose Compact Overlay, the app window will not allow other app windows to overlap on top of it.
+> **NOTE**: The preceding code gets the window Id for the hwnd and then uses that window Id to get the current AppWindow. This will create the WinAppSDK window layer that gives you access to all the window customization features of the app window. 
 
 4.	Call GetAppWindowForCurrentWindow in the **MainWindow() method**:
 
@@ -177,14 +165,18 @@ private void SwtichPresenter_CompOverlay(object sender, RoutedEventArgs e)
 <MenuFlyoutItem Text="Compact Overlay" Click="SwtichPresenter_CompOverlay"/>
 ```
 
-## Results
+>**NOTE**: Repeat the steps 5 and 6 to implement the FullScreen and Overlapped (the default) presenters. The only change needed is to modify step 5 to use AppWindowPresenterKind.Overlapped or AppWindowPresenterKind.FullScreen.
+
+## Result
 <p align="center">
 
 ![](Media1%20(1).gif)
 
 </p>
 
-Just like that, you can see how we can leverage the amazing Windowing features to customize windowing options for your app. Repeat the steps 5 and 6 to implement the FullScreen and Overlapped (the default) presenters. The only change needed is to modify step 5 to use AppWindowPresenterKind.Overlapped or AppWindowPresenterKind.FullScreen. To learn more about Windowing, see [Manage app windows](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/windowing/windowing-overview) for additional information on what you can do with this feature. 
+Just like that, you can see how we can leverage the amazing Windowing features to customize windowing options for your app. If you run your app again and click the drop-down button and choose Compact Overlay, the app window will not allow other app windows to overlap on top of it. To learn more about Windowing, see [Manage app windows](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/windowing/windowing-overview) for additional information on what you can do with this feature. 
+
+[Here](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/App_Logic) is the completed code covered in this post.
 
 ## Moving forward
-Next, we will keep evolving the app with [single-instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md). This [branch](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/App_Logic) on GitHub covers all the code introduced in this blog.
+Next, we will keep evolving the app with [single-instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md).  

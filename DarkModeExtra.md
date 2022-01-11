@@ -15,9 +15,13 @@ using Windows.Storage;
 ```csharp
 private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
 {
-    ...
-    if (toggleSwitch != null) { ... }
-
+    ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+    if (toggleSwitch.IsOn) {
+        ((FrameworkElement)this.Content).RequestedTheme = ElementTheme.Dark;
+    }
+    else {
+        ((FrameworkElement)this.Content).RequestedTheme = ElementTheme.Light;
+    }
     ApplicationData.Current.LocalSettings.Values["themeSetting"] = ((ToggleSwitch)sender).IsOn ? 0 : 1;
 }
 ```
