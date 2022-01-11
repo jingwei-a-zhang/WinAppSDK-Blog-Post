@@ -1,7 +1,7 @@
 # Build your first WinUI 3 app (Part 1)
 Through this tutorial, you will learn how to write a WinUI 3 desktop app. You will use the Windows App SDK, which decouples APIs and tools from the operating system and provides a modernized UI framework for Windows 10/11 app development. This blog aims to help members new to Windows development quickly build familiarity using WinAppSDK by guiding you through a fun sample app I created. 
 
-
+This post is part 1 of the 3-part WinAppSDK blog and **is scoped to showing you how to use WinUI 3 controls to create a simple working user interface.** [Part 2](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/Windowing.md) and [3](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md) are for windowing and single instancing. 
 
 ## Sample app overview
 We are going to build an app with buttons that produce drum sounds (DrumPad). As simple as this demo app is, it shows some cool things you can do right away with WinAppSDK:
@@ -9,7 +9,6 @@ We are going to build an app with buttons that produce drum sounds (DrumPad). As
 * Customizing windowing options so that the user can multitask with the app always on top or have a full immersive experience 
 * Making the app single-instanced to reduce synchronization issues between instances 
 
-This post is part 1 of the WinAppSDK blog series and **is dedicated to showing you how to use WinUI 3 controls to create a simple working user interface.** Part 2 and 3 are for  [windowing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/Windowing.md) and [single instancing](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md). I've posted the code used in today's post on [GitHub](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/b748f19d15fd7b3df10e24ebf5bb6a03bec6ada7) for your reference.
 
 ## Prerequisites 
 1. Install tools for developing apps for Windows 10 and Windows 11 [here](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=vs-2022).
