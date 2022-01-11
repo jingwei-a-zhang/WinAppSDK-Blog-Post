@@ -171,6 +171,6 @@ As simple as that, we should have a working visual layer built out using WinUI 3
 [Here](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/UI_Layout) is the completed code used in this post.
 
 ## Moving forward
-The buttons don't *do* anything yet, but that's next time! In part 2 we will dive into [implementing the business logic](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/Windowing.md). 
+The buttons don't *do* anything yet, but that's next time! In [part 2](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/Windowing.md) we will dive into implementing the business logic. 
 
   [1]: image%203%20(2).png
