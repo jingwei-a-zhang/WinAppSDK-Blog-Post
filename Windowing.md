@@ -12,11 +12,11 @@ Note that in part 1 of the WinAppSDK Blog Series you implemented the visual laye
 
 > **NOTE**: You may download any .wav sound clips for this part. Optionally, you could use my sound clips [here](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/tree/5c6e560edf74ceb0a40183e20b66741175a046d7/DrumPad/DrumPad/Assets) as well. Store the sound clips under your project's Assets folder because that is the folder path we will provide to specify which sound to play. 
 
-2. Install the System.Windows.Extensions NuGet Package
+2. Install the *System.Windows.Extensions* NuGet Package
 
 > **NOTE**: Playing a sound in WinUI apps requires using a library called *System.Media*, accessible through a NuGet Package. Following these two steps to install the NuGet Package in Visual Studio:
 
-* Navigate to Solution Explorer, under Dependencies, right-click on Packages, select Manage NuGet Packages
+* Navigate to **Solution Explorer**, under Dependencies, **right-click** on Packages, select Manage NuGet Packages
 * Select the **Browse** tab, search **System.Windows.Extensions** and **install** it
 
 
@@ -51,7 +51,7 @@ private void pad_clicked(object sender, RoutedEventArgs e)
 
 
 
-Repeat step 4 and 5 to attach another sound clip to a different button until all the buttons have a click action! For your reference, check out my MainWindow.xaml.cs and MainWindow.xaml on GitGub.
+Repeat step 4 and 5 to attach another sound clip to a different button until all the buttons have a click action! For your reference, check out my [MainWindow.xaml.cs](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/blob/App_Logic/DrumPad/DrumPad/MainWindow.xaml.cs) and [MainWindow.xaml](https://github.com/jingwei-a-zhang/WinAppSDK-DrumPad/blob/App_Logic/DrumPad/DrumPad/MainWindow.xaml) on GitHub.
 
 ## Implement dark mode
 The dark mode is an app appearance where the content is laid out on a dark background. It gives the app a different aesthetic look and can improve readability, especially in a low-light environment.

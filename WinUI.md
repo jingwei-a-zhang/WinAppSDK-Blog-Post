@@ -1,25 +1,27 @@
 # Build your first WinUI 3 app (Part 1)
-Through this tutorial, you will learn how to write a WinUI 3 desktop app. You will use the Windows App SDK, which decouples APIs and tools from the operating system and provides a modernized UI framework for Windows 10/11 app development. This blog aims to help members new to Windows development quickly build familiarity using WinAppSDK by guiding you through a fun sample app I created. 
+As part of the [Windows App SDK](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/), WinUI 3 provides a modernized UI framework for building Windows 10 and Windows 11. This 3-part blog aims to help members new to Windows development quickly build familiarity using the Window App SDK through a fun sample app I created.
 
-This post is part 1 of the 3-part WinAppSDK blog and **is scoped to showing you how to use WinUI 3 controls to create a simple working user interface.** [Part 2](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/Windowing.md) and [3](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md) are for windowing and single instancing. 
+**This post is only part 1 of the 3-part Windows App SDK blog** and is scoped to showing you how to use WinUI 3 controls to create a simple working user interface. [Part 2](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/Windowing.md) and [3](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md) are for windowing and single instancing. 
 
 ## Sample app overview
-We are going to build an app with buttons that produce drum sounds (DrumPad). As simple as this demo app is, it shows some cool things you can do right away with WinAppSDK:
-* Working with simple and easy-to-use UI controls from Windows UI Library (WinUI) 3
-* Customizing windowing options so that the user can multitask with the app always on top or have a full immersive experience 
-* Making the app single-instanced to reduce synchronization issues between instances 
+We are going to build an app with buttons that produce drum sounds (DrumPad). As simple as this demo app is, it shows some cool things you can do right away with the Windows App SDK (WinAppSDK):
+* Working with simple and easy-to-use UI controls from [Windows UI Library (WinUI) 3](https://docs.microsoft.com/en-us/windows/apps/winui/winui3/)
+* Customizing [windowing](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/windowing/windowing-overview) options so that the user can multitask with the app always on top or have a full immersive experience 
+* Making the app [single-instanced](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/applifecycle/applifecycle-instancing) to reduce synchronization issues between instances 
 
 
 ## Prerequisites 
 1. Install tools for developing apps for Windows 10 and Windows 11 [here](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=vs-2022).
-2. Create a WinUI 3 app that uses the Windows App SDK [here](https://docs.microsoft.com/en-us/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp).
+2. [Create a WinUI 3 app](https://docs.microsoft.com/en-us/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp) using the Blank App, Packaged (WinUI 3 in Desktop) template, and name it **DrumPad**.
 
-> **Optional**: If you are new to Windows development, we recommend taking a [C# crash course](https://docs.microsoft.com/en-us/shows/CSharp-101/?WT.mc_id=Educationalcsharp-c9-scottha&page=1) to familiarize yourself with the syntax and other basics.
 
 ## Project template structure
-In the WinUI 3 project template, code is broken down into two main parts: App.xaml and MainWindow.xaml. Most of our code will live in MainWindow.xaml and MainWindow.xaml.cs
-* **MainWindow.xaml**: this is a XAML file where we will define all of our UI elements, called “controls”, that will make up the visual layer of our application.
-* **MainWindow.xaml.cs**: This is the C# code-behind file where we will put all the logic that lets us interact with our application.
+In the WinUI 3 project template, most of our code will live in *MainWindow.xaml* and *MainWindow.xaml.cs*
+
+* **MainWindow.xaml** is a XAML file where we will define all of our UI elements, called “controls”, that will make up the visual layer of our application. 
+* **MainWindow.xaml.cs** is the C# code-behind file where we will put all the logic that lets us interact with our application.
+
+
 
 ## UI layout design
 The following WinUI 3 controls are used to represent components of a drum pad:
@@ -31,40 +33,38 @@ The following WinUI 3 controls are used to represent components of a drum pad:
 
 ![](Group%20123.png)
 
-## Creating the project
-
-1.	In Visual Studio, select **Create a new project**
-2.	In the project drop-down filters, select **C#**, **Windows**, and **WinUI**, respectively
-3.	Select the Blank App, Packaged (WinUI 3 in Desktop) template, name it **DrumPad**, and click Create
-4.  After the project is created, choose your target platform. (Here we use  **x64**)
+## Deleting partial template code
 
 The default project template comes with some blocks of code you'll want to delete so we can replace them with our own markup and implementation:
+
+
+###### MainWindow.xaml:
+```xml
+<!-- Delete the following template code -->
+
+<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
+</StackPanel>
+```
 
 ##### MainWindow.xaml.cs:
 
 ```csharp
-// STEP 5: Delete the following template code
+// Delete the following template code
+
 private void myButton_Click(object sender, RoutedEventArgs e)
 {
     myButton.Content = "Clicked";
 }
 ```
 
-###### MainWindow.xaml:
-```xml
-<!-- STEP 5: Delete the following template code -->
-<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-    <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-</StackPanel>
-```
 
 ## Defining the layout 
 In your MainWindow.xaml we will start by defining the set of nested grids and specify their controls and positioning. Open MainWindow.xaml in the XML editor view and inside the *\<Window/>* element add this content: 
 
-> **NOTE**: From this point on, all the code will go into **MainWindow.xaml**
-
-6.	Add all 3 Grids and specify how their inner controls should be positioned **within the \<Window> tags**:
 ```xml
+<!-- Add GRID CODE -->
+
 <Grid>
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
@@ -76,17 +76,24 @@ In your MainWindow.xaml we will start by defining the set of nested grids and sp
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
+        <!-- STEP 1: Add DropDownButton & ToggleSwitch CODE -->
     </Grid>
     
     <Grid x:Name="Control1" Grid.Row="1" ColumnSpacing="30" RowSpacing="12"
           VerticalAlignment="Center" HorizontalAlignment="Center">
+        <!-- STEP 3: Define column & row positioning -->
+        <!-- STEP 4: Add Styling for BUTTON -->
+        <!-- STEP 2: Add BUTTON CODE -->
     </Grid>
 </Grid>
 ```
 
+
+
 > **NOTE**: Auto and * are used to specify the height and width above to create a responsive layout. The controls held within the Grids are not fixed in size and can adjust to fill in spaces as the user resizes the app window. 
 
-7.	Add DropDownButton & ToggleSwitch **below </Grid.ColumnDefinitions>** :
+## Setting up remaining controls
+STEP 1:	Add DropDownButton & ToggleSwitch:
 
 ```xml
 <DropDownButton Content="Display" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="118" >
@@ -104,7 +111,7 @@ In your MainWindow.xaml we will start by defining the set of nested grids and sp
 
 
 
-8.	Add Buttons **above the second last \</Grid> tag**, which is close to the bottom of the codebase:
+STEP 2:	Add Buttons:
 
 ```xml
 <Button Background="#FF0000" Grid.Row="0" Grid.Column="0" Content="Kick 1"/>
@@ -129,27 +136,28 @@ In your MainWindow.xaml we will start by defining the set of nested grids and sp
 ```
 
 
-9.	Specify how the bottom Grid should position those Buttons that just got added to it:
-> **NOTE**: put the following code above \<Button Background="#FF0000" ... "Kick 1"/>
+STEP 3:	Specify how the Grid should position these Buttons:
+
 ```xml
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
-    
-    <Grid.RowDefinitions>
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
+<Grid.ColumnDefinitions>
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+</Grid.ColumnDefinitions>
+
+<Grid.RowDefinitions>
+    <RowDefinition Height="*" />
+    <RowDefinition Height="*" />
+    <RowDefinition Height="*" />
+    <RowDefinition Height="*" />
+</Grid.RowDefinitions>
 ```
 
 
-10.	Finally, apply some standardized styling to all the Buttons in this grid:
-> **NOTE**: put the following code below \</Grid.RowDefinitions> from step 9
+STEP 4:	Apply standardized styling to all the Buttons:
+
+
 ```xml
 <Grid.Resources>
     <Style TargetType="Button">
@@ -163,7 +171,7 @@ In your MainWindow.xaml we will start by defining the set of nested grids and sp
 ```
 
 ## Result
-As simple as that, we should have a working visual layer built out using WinUI 3 controls. Press F5 to build and run the solution, you should see: 
+As simple as that, we should have a working visual layer built out using WinUI 3 controls. Choose x64 as your target platform, then press F5 to run the project solution. You should see: 
 
 ![](image%204%20(1).png)
 
