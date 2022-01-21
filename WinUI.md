@@ -1,5 +1,5 @@
 # Build your first WinUI 3 app (Part 1)
-As part of the [Windows App SDK](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/), WinUI 3 provides a modernized UI framework for building Windows 10 and Windows 11. This 3-part blog aims to help members new to Windows development quickly build familiarity using the Window App SDK through a fun sample app I created.
+As part of the [Windows App SDK](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/), WinUI 3 provides a modernized UI framework for building Windows 10 and Windows 11. This 3-part blog aims to help members new to Windows development quickly build familiarity using the Window App SDK through a fun sample app.
 
 **This post is only part 1 of the 3-part Windows App SDK blog** and is scoped to showing you how to use WinUI 3 controls to create a simple working user interface. [Part 2](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/Windowing.md) and [3](https://github.com/jingwei-a-zhang/test-MDfiles/blob/main/SingleInstancing.md) are for windowing and single instancing. 
 
